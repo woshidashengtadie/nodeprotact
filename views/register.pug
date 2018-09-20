@@ -1,0 +1,48 @@
+extends layout/layout.pug
+block css
+  link(rel='stylesheet',href='/css/register.css')
+block contents
+  include sidebar
+  div(class='layui-container fly-marginTop')
+    div(class='fly-panel fly-panel-user' pad20)
+      div(class='layui-tab layui-tab-brief')
+        div(class='layui-tab-title')
+          li(class=show? "":"layui-this") 登入
+          li(class=show? "layui-this":"") 注册
+
+        //登录
+        div(class="layui-form layui-tab-content",class = show? 'hide':'' ,style='padding: 20px 0;')
+          div(class='layui-tab-item layui-show')
+            div(class='layui-form layui-form-pane')
+              form(method='post',action='/user/login')
+                .layui-form-item
+                  label(for="L_email" class="layui-form-label") 用户名
+                  div(class="layui-input-inline")
+                    input(type="text" id="L_loginName" name="loginName" required="" lay-verify="required" autocomplete="off" class="layui-input")
+                  div(class='layui-form-mid layui-word-aux')
+                .layui-form-item
+                  label(for="L_pass" class="layui-form-label") 密码
+                  div(class="layui-input-inline")
+                    input(type="password" id="L_pass" name="pass" required="" lay-verify="required" autocomplete="off" class="layui-input")
+                .layui-form-item
+                  button(class="layui-btn" lay-filter="*" lay-submit="" ) 立即登录
+
+        //注册
+        div(class='layui-form layui-tab-content' class = show? '':'hide',style='padding: 20px 0;')
+          div(class='layui-tab-item layui-show')
+            div(class='layui-form layui-form-pane')
+              form(method='post',action='/user/reg')
+                .layui-form-item
+                  label(for="L_email" class="layui-form-label") 用户名
+                  div(class="layui-input-inline")
+                    input(type="text" id="L_loginName" name="loginName" required="" lay-verify="required" autocomplete="off" class="layui-input")
+                .layui-form-item
+                  label(for="L_vercode" class="layui-form-label") 密码
+                  div(class="layui-input-inline")
+                    input(type="text" id="L_imagecode" name="imagecode" required="" lay-verify="required" autocomplete="off" class="layui-input")
+                .layui-form-item
+                  label(for="L_pass" class="layui-form-label") 确认密码
+                  div(class="layui-input-inline")
+                    input(type="text" id="L_imagecode" name="imagecode" required="" lay-verify="required" autocomplete="off" class="layui-input")
+                .layui-form-item
+                  button(class="layui-btn" lay-filter="*" lay-submit="" ) 立即登录

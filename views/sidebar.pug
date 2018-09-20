@@ -1,0 +1,10 @@
+div(class='fly-panel fly-column')
+  div(class='layui-container')
+    ul(class='layui-clear')
+      mixin navb(...name)
+        each item in name
+          li(class='layui-hide-xs')
+            a(href='#')=item
+      li(class='layui-hide-xs layui-this')
+        a(href='') css
+      +navb('js','html','php','jk')

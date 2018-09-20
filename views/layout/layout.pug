@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title=title
+    meta(charset='utf-8')
+    meta(name='keywords' content='前端')
+    link(rel='stylesheet',href='/layui/css/layui.css')
+    link(rel='stylesheet',href='/css/global.css')
+    block css
+
+    scripts(src='/layui/layui.js')
+
+
+  body
+    //- nav
+    include ../nav
+
+    //- content
+    block contents
+
+    //- footer
+    block js
+    include ../footer.pug
+
+
+
+
+
+

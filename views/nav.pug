@@ -1,0 +1,29 @@
+// 二级导航
+mixin navcontent(...name)
+  each item in name
+    li(class='layui-nav-item')
+      a(href='#')=item
+
+// 导航
+mixin navb(...name)
+  each item in name
+    li(class='layui-hide-xs')
+      a(href='#')=item
+
+div(class='fly-header layui-bg-black')
+  div(class='layui-container')
+    a(class='fly-logo' href='/')
+      img(src='https://res.layui.com/static/images/fly/logo.png' alt='layui')
+    ul(class='layui-nav fly-nav layui-hide-xs')
+      +navcontent('首页','web','大数据','MMP','社区','java','Python','关于博主')
+      li(class='layui-nav-item layui-this')
+        a(href='/')
+
+    ul(class='layui-nav fly-nav-user')
+      li(class='layui-nav-item')
+        a(class='iconfont icon-touxiang layui-hide-xs' href='')
+      li(class='layui-nav-item')
+        a(href='/user/login') 登入
+      li(class='layui-nav-item')
+        a(href='/user/reg') 注册
+
