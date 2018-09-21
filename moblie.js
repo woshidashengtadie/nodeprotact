@@ -1,8 +1,9 @@
 const Koa = require('koa')
 const static = require('koa-static')
 const views = require('koa-views')
-const router = require('./routers/routers')
+const body = require('koa-body')
 const logger = require('koa-logger')
+const router = require('./routers/routers')
 const {join} = require('path')
 
 
@@ -10,10 +11,13 @@ const {join} = require('path')
 const app = new Koa
 
 
-
-
 //注册日志模块
 app.use(logger())
+
+
+//配置koa-body 处理post 请求数据
+app.use(body)
+
 
 //配置静态资源目录
 app.use(static(join(__dirname,'public')))
@@ -25,9 +29,9 @@ app.use(views(join(__dirname,'views'),{
 
 
 
-
 //注册路由信息
 app.use(router.routes()).use(router.allowedMethods())
+
 
 
 app.listen(3000,()=>{
